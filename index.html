@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="global.css">
+    <script type="module" src="js/index.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragdealer/0.9.9/dragdealer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+
+<body>
+    <section class="draggable_section">
+        <div class="draggable_canvas draggable-width" style="opacity: 1;">
+            <div class="draggable_wrap draggable-height">
+                <div class="draggable_list"
+                    style="height: 500%; width: 500%; perspective: 1000px; backface-visibility: hidden; transform: translateX(-551px) translateY(-661px);">
+                    <div class="draggable_item" style="height: 20%; width: 20%; opacity: 0.25;"><a
+                            class="draggable_link w-inline-block"><img
+                                src="images/22960-wedding-party-20-mile-house-peyton-rainey-photography.jpg" alt=""
+                                class="draggable_img" style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);">
+                            <div class="draggable_title">Custom Production</div>
+                        </a></div>
+                    <div class="draggable_item" style="height: 20%; width: 20%; opacity: 0.25;"><a
+                            class="draggable_link w-inline-block"><img src="images/fotos-by-fola.jpg" alt=""
+                                class="draggable_img" style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);">
+                            <div class="draggable_title">Custom Production</div>
+                        </a></div>
+                    <div class="draggable_item" style="height: 20%; width: 20%; opacity: 0.25;"><a
+                            class="draggable_link w-inline-block"><img
+                                src="images/22960-wedding-party-20-mile-house-peyton-rainey-photography.jpg" alt=""
+                                class="draggable_img" style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);">
+                            <div class="draggable_title">AlphaByte</div>
+                        </a></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="draggable_overlay">
+            <div class="draggable_lines">
+                <div class="draggable_box"></div>
+                <div class="draggable_box"></div>
+                <div class="draggable_box"></div>
+                <div class="draggable_box"></div>
+                <div class="draggable-scale"
+                    style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+                    <div class="draggable_circle">
+                        <div class="aspect-square"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="draggable-width">
+                <div class="draggable-scale"
+                    style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+                    <div class="draggable_corner">
+                        <div class="aspect-square"></div>
+                    </div>
+                    <div class="draggable_corner is-2">
+                        <div class="aspect-square"></div>
+                    </div>
+                    <div class="draggable_corner is-3">
+                        <div class="aspect-square"></div>
+                    </div>
+                    <div class="draggable_corner is-4">
+                        <div class="aspect-square"></div>
+                    </div>
+                </div>
+                <div class="draggable-height"></div>
+            </div>
+            <div class="draggable_title_wrap">
+                <div class="draggable_title_text"
+                    style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; filter: none;">
+                    Foxy Beauty</div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
