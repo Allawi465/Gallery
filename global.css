@@ -3,8 +3,65 @@
 }
 
 body {
+    margin: 0;
     overflow: hidden;
 }
+
+.header {
+    z-index: 99;
+    background-image: linear-gradient(white 16%, rgba(255, 255, 255, 0.7) 71%, rgba(255, 255, 255, 0));
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 5.469vw;
+    padding-top: 2.344vw;
+    padding-left: 6.172vw;
+    padding-right: 6.172vw;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.opacity {
+    opacity: 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* eges */
+
+.clip-path-top {
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+    z-index: 1;
+    position: absolute;
+    background: #414328;
+    height: 217px;
+    width: 217px;
+    top: 0px;
+    left: 0px;
+}
+
+.clip-path-bottom {
+    clip-path: polygon(100% 100%, 0% 100%, 100% 0);
+    z-index: 1;
+    position: absolute;
+    background: #414328;
+    height: 217px;
+    width: 217px;
+    bottom: 0px;
+    right: 0;
+}
+
+/* gallery */
 
 .draggable_item {
     opacity: .25;
@@ -170,26 +227,211 @@ body {
     overflow: hidden
 }
 
-.draggable_title {
-    color: #fff;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-family: Roslindale Display Condensed, sans-serif;
-    font-size: 5.469vw;
-    font-weight: 300;
-    line-height: 115%;
-    display: none
-}
-
 .draggable_title.div {
     background-color: red
 }
 
-.draggable_title_text {
-    color: #ebebeb;
-    font-family: Roslindale Display Condensed, sans-serif;
-    font-size: 5.469vw;
+.infinity {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);
+}
+
+.infinity .outline {
+    stroke: #414328;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    fill: none;
+}
+
+.infinity .outline-bg {
+    opacity: 0.5;
+    stroke: #c9b9b9d3;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    fill: none;
+}
+
+.infinity .outline {
+    stroke-dasharray: 2.42776657104492px 242.776657104492px;
+    stroke-dashoffset: 0;
+    animation: anim 1.6s linear infinite;
+}
+
+/* vers */
+
+.vers {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    width: 83.33%;
+    max-width: 750px;
+    height: 200px;
+    letter-spacing: -0.025em;
+}
+
+.vers p,
+.vers span {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    color: rgb(17 24 39);
+}
+
+.korinter-vers-1,
+.Mark-vers {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+
+.mark-10 .word,
+.korinter-13 .word {
+    margin-right: 5px;
+}
+
+.korinter-13,
+.mark-10 {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+/* text-split */
+
+[text-split] {
+    opacity: 0;
+}
+
+html.w-editor [text-split] {
+    opacity: 1;
+}
+
+.word {
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+    transform-origin: bottom;
+}
+
+/* SVG */
+
+.svg-flower {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 249px;
+    height: 249px;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #231F20;
+}
+
+.svg-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
     font-weight: 300;
-    line-height: 115%
+    font-style: italic;
+}
+
+.outside-container {
+    width: 580px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.outside-text {
+    font-family: 'Playfair Display', serif;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.vakre-text,
+.snap-text {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.bottom-container {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom-text {
+    font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.robel-text,
+.mahta-text {
+    font-size: 3.75rem;
+    line-height: 1;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.linje-text {
+    width: 87px;
+    border-top: 2px solid black;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    margin-top: 50px;
+    height: 2px;
+}
+
+
+@keyframes anim {
+    12.5% {
+        stroke-dasharray: 33.98873259467888px 242.776657104492px;
+        stroke-dashoffset: -26.70543228149322px;
+    }
+
+    43.75% {
+        stroke-dasharray: 84.9718309865722px 242.776657104492px;
+        stroke-dashoffset: -84.9718309865722px;
+    }
+
+    100% {
+        stroke-dasharray: 2.42776657104492px 242.776657104492px;
+        stroke-dashoffset: -240.34889053344708px;
+    }
+}
+
+@media screen and (max-width: 807px) {
+
+    .korinter-vers-1,
+    .Mark-vers {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    .korinter-13,
+    .mark-10 {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
 }
