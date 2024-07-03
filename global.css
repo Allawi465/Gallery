@@ -2,9 +2,14 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     overflow: hidden;
+    height: 100%;
 }
 
 .header {
@@ -23,10 +28,72 @@ body {
     right: 0
 }
 
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.svg-footer {
+    position: relative;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 180px;
+    z-index: 999;
+}
+
+.footer-wrapper {
+    z-index: 99;
+    background-image: linear-gradient(to top, white 16%, rgba(255, 255, 255, 0.7) 71%, rgba(255, 255, 255, 0));
+    height: 5.469vw;
+    padding-bottom: 0;
+    padding-left: 6.172vw;
+    padding-right: 6.172vw;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.svg-flower-bottom {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+}
+
+.svg-text-bottom {
+    position: absolute;
+    bottom: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #231F20;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.8rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.date,
+.sted {
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+}
+
 .container {
     position: relative;
     width: 100%;
     height: 100%;
+}
+
+.displayNone {
+    display: none;
 }
 
 .opacity {
@@ -266,15 +333,20 @@ body {
 /* vers */
 
 .vers {
+    height: 100%;
+    width: 100%;
+}
+
+.vers-1,
+.vers-2 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     width: 83.33%;
-    max-width: 750px;
-    height: 200px;
-    letter-spacing: -0.025em;
+    max-width: 700px;
 }
 
 .vers p,
@@ -284,23 +356,23 @@ body {
     color: rgb(17 24 39);
 }
 
+.korinter-13,
+.mark-10 {
+    display: flex;
+    align-self: flex-end;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
 .korinter-vers-1,
 .Mark-vers {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
 }
 
 .mark-10 .word,
 .korinter-13 .word {
     margin-right: 5px;
-}
-
-.korinter-13,
-.mark-10 {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 1.5rem;
-    line-height: 2rem;
 }
 
 /* text-split */
@@ -383,6 +455,7 @@ html.w-editor [text-split] {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
 }
 
 .robel-text,
@@ -404,6 +477,109 @@ html.w-editor [text-split] {
 }
 
 
+@media screen and (max-width: 991px) {
+    .draggable-width {
+        width: 85%;
+    }
+
+    .header-container,
+    .footer-container {
+        width: 100%;
+    }
+
+    .footer-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .vers p,
+    .vers span {
+        max-width: 80%;
+    }
+
+    .vers p {
+        margin: auto;
+    }
+
+
+    .korinter-vers-1,
+    .Mark-vers {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .korinter-13,
+    .mark-10 {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 621px) {
+
+    .outside-container {
+        width: 420px;
+        height: 500px;
+    }
+
+    .robel-text,
+    .mahta-text {
+        font-size: 3rem;
+    }
+
+    .linje-text {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 433px) {
+
+    .vers {
+        height: 300px;
+    }
+
+    .outside-container {
+        width: 300px;
+        height: 500px;
+    }
+
+    .robel-text,
+    .mahta-text {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+
+    .vakre-text,
+    .snap-text {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    .linje-text {
+        margin-top: 30px;
+        width: 47px;
+        border-top: 1px solid black;
+        margin-left: 0.50rem;
+        margin-right: 0.50rem;
+    }
+
+    .outside-text {
+        grid-template-columns: repeat(2, 120px);
+    }
+
+    .svg-flower {
+        width: 200px;
+        width: 200px;
+    }
+
+    .bottom-container {
+        position: absolute;
+        bottom: 30px;
+    }
+}
+
 @keyframes anim {
     12.5% {
         stroke-dasharray: 33.98873259467888px 242.776657104492px;
@@ -418,20 +594,5 @@ html.w-editor [text-split] {
     100% {
         stroke-dasharray: 2.42776657104492px 242.776657104492px;
         stroke-dashoffset: -240.34889053344708px;
-    }
-}
-
-@media screen and (max-width: 807px) {
-
-    .korinter-vers-1,
-    .Mark-vers {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-    }
-
-    .korinter-13,
-    .mark-10 {
-        font-size: 1.125rem;
-        line-height: 1.75rem;
     }
 }

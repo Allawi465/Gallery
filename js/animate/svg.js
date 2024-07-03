@@ -17,7 +17,7 @@ const animatSvg = () => {
         tagName: 'span'
     });
 
-    tl.set('.svg-flower', { visibility: 'visible', delay: 12.8, }, '<')
+    tl.set('.svg-flower', { visibility: 'visible', delay: 14.4, }, '<')
         .to('.svg-flower', {
             opacity: 1,
             rotation: 360,
@@ -25,7 +25,6 @@ const animatSvg = () => {
 
     tl.set('.svg-text', { visibility: 'visible' }, '<')
         .from('.svg-text', {
-            duration: 1,
             opacity: 0,
             ease: "power2.out",
             rotationX: -90,
@@ -47,7 +46,6 @@ const animatSvg = () => {
         .from('.linje-text', {
             width: 0,
             alpha: 0,
-            duration: 1,
             delay: 0.4,
             ease: "power2.out",
         }, '<');
@@ -60,8 +58,9 @@ const animatSvg = () => {
     tl.set('.mahta-text', { visibility: 'visible' }, '<')
         .from('.mahta-text', {
             alpha: 0, x: -40, ease: "power1.easeOut",
-        }, '<');
-
+        }, '<')
+        .set('.eges-top', { visibility: 'hidden', display: "none", }, '>')
+        .set('.eges-bottom', { visibility: 'hidden', display: "none", }, '>')
 
     return tl;
 };

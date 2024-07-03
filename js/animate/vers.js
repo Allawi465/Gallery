@@ -21,7 +21,7 @@ const vers = () => {
 
     const tl = gsap.timeline({
         defaults: {
-            ease: 'power1.inout',
+            ease: 'power1.inOut',
             stagger: { amount: 1 },
         },
     });
@@ -31,7 +31,7 @@ const vers = () => {
         duration: 1,
         delay: 2.2,
         scale: 0,
-    });
+    })
 
     tl.set('.korinter-vers-1', { visibility: 'visible' }, '<')
         .from('.korinter-vers-1 span span', {
@@ -57,21 +57,25 @@ const vers = () => {
     }, '<');
 
     tl.set('.korinter-vers-1', { visibility: 'hidden', display: "none", }, '>')
-    tl.set('.korinter-vers-1', { visibility: 'hidden', display: "none", }, '<')
+        .set('.korinter-vers-1', { visibility: 'hidden', display: "none", }, '<')
 
-    tl.set('.Mark-vers', { visibility: 'visible', yPercent: -30 })
+    tl.set('.Mark-vers', { visibility: 'visible' })
         .from('.Mark-vers span span', {
             yPercent: -200, duration: 0.7, ease: "power1.out", stagger: { amount: 0.7 }
         }, '>');
 
-    tl.set('.mark-10', { visibility: 'visible', yPercent: -95 }, '<')
+    tl.set('.mark-10', { visibility: 'visible' }, '<')
         .from('.mark-10 span span', {
             opacity: 0, duration: 1, ease: "power1.out", stagger: { amount: 0.8 }
         }, '<');
 
     tl.to('.Mark-vers', {
-        opacity: 0, delay: 4, duration: 0.8, delay: 0.5, stagger: { amount: 0.8 }, scale: 0,
-    });
+        opacity: 0,
+        delay: 4,
+        duration: 0.8,
+        stagger: { amount: 0.8 },
+        scale: 0,
+    }, '<');
 
     tl.to('.mark-10', {
         opacity: 0, duration: 0.8, stagger: { amount: 0.8 }, scale: 0
@@ -107,8 +111,12 @@ const vers = () => {
         background: "#414328"
     }, '<');
 
-    tl.set('.Mark-vers', { visibility: 'hidden', display: "none", }, '<')
-    tl.set('.mark-10', { visibility: 'hidden', display: "none", }, '<')
+    tl.set('.Mark-vers', { visibility: 'hidden', display: "none", }, '>')
+        .set('.mark-10', { visibility: 'hidden', display: "none", }, '<')
+        .set('.vers', { display: 'none' }, '<')
+        .set('.infinity', { display: 'none' }, '>')
+
+    console.log(tl);
 
     return tl;
 }
