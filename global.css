@@ -10,6 +10,10 @@ body {
     margin: 0;
     overflow: hidden;
     height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .header {
@@ -160,8 +164,8 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 33.3333%;
     grid-auto-columns: 1fr;
-    width: 100%;
-    height: 100%;
+    width: 40%;
+    height: 40%;
     display: flex;
     position: absolute;
     top: 0%;
@@ -216,39 +220,21 @@ body {
     transform: rotate(180deg)
 }
 
-.draggable_title_wrap {
-    grid-column-gap: 2vw;
-    grid-row-gap: 2vw;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 15%;
-    padding-left: 4%;
-    padding-right: 4%;
-    display: flex;
-    position: absolute;
-    top: auto;
-    bottom: 0%;
-    left: 0%;
-    right: 0%
-}
-
 .draggable-width {
-    width: 50%;
+    width: 40%;
     display: block;
-    position: absolute
+    position: absolute;
 }
 
 .draggable_circle {
     border-radius: 50%;
     outline: 1px solid #fff;
     width: 26%;
-    position: absolute
+    position: absolute;
 }
 
 .aspect-square {
-    padding-top: 100%
+    padding-top: 100%;
 }
 
 .draggable-scale {
@@ -267,7 +253,7 @@ body {
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    display: none
+    display: none;
 }
 
 .draggable_section {
@@ -275,15 +261,16 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    gap: 30px;
     display: flex;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .draggable_link {
     width: 100%;
     height: 100%;
-    text-decoration: none
+    text-decoration: none;
 }
 
 .draggable_img {
@@ -291,7 +278,20 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    overflow: hidden
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.bottom {
+    object-position: bottom;
+}
+
+.center {
+    object-position: center;
+}
+
+.top {
+    object-position: top;
 }
 
 .draggable_title.div {
@@ -346,7 +346,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 83.33%;
-    max-width: 700px;
+    max-width: 970px;
 }
 
 .vers p,
@@ -360,14 +360,14 @@ body {
 .mark-10 {
     display: flex;
     align-self: flex-end;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
 }
 
 .korinter-vers-1,
 .Mark-vers {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 3rem;
+    line-height: 1;
 }
 
 .mark-10 .word,
@@ -419,7 +419,7 @@ html.w-editor [text-split] {
 }
 
 .outside-container {
-    width: 580px;
+    width: 750px;
     height: 500px;
     position: absolute;
     top: 50%;
@@ -430,7 +430,7 @@ html.w-editor [text-split] {
 .outside-text {
     font-family: 'Playfair Display', serif;
     display: grid;
-    grid-template-columns: repeat(2, 150px);
+    grid-template-columns: repeat(2, 220px);
     justify-content: space-between;
     margin-top: 2rem;
 }
@@ -439,8 +439,8 @@ html.w-editor [text-split] {
 .snap-text {
     font-style: italic;
     font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
 }
 
 .bottom-container {
@@ -476,6 +476,61 @@ html.w-editor [text-split] {
     height: 2px;
 }
 
+@media screen and (max-width: 2547px) {
+
+    .vers-1,
+    .vers-2 {
+        max-width: 800px;
+    }
+
+    .korinter-13,
+    .mark-10 {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+
+    .korinter-vers-1,
+    .Mark-vers {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+}
+
+
+@media screen and (max-width: 1366px) {
+
+    .vers-1,
+    .vers-2 {
+        max-width: 700px;
+    }
+
+    .korinter-vers-1,
+    .Mark-vers {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+
+    .korinter-13,
+    .mark-10 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .outside-container {
+        width: 580px;
+    }
+
+    .outside-text {
+        grid-template-columns: repeat(2, 150px);
+    }
+
+    .vakre-text,
+    .snap-text {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}
+
 
 @media screen and (max-width: 991px) {
     .draggable-width {
@@ -494,9 +549,14 @@ html.w-editor [text-split] {
 
 @media screen and (max-width: 800px) {
 
+    .vers-1,
+    .vers-2 {
+        max-width: 100%;
+    }
+
     .vers p,
     .vers span {
-        max-width: 80%;
+        max-width: 100%;
     }
 
     .vers p {
@@ -535,10 +595,6 @@ html.w-editor [text-split] {
 }
 
 @media screen and (max-width: 433px) {
-
-    .vers {
-        height: 300px;
-    }
 
     .outside-container {
         width: 300px;

@@ -8,7 +8,7 @@ const animatAfterSvg = () => {
     });
 
     tl.to('.svg-flower', {
-        opacity: 0, rotation: -360, ease: "power1.out", delay: 19,
+        opacity: 0, rotation: -360, ease: "power1.out", delay: 18.5,
     }, ">").to('.svg-text', {
         opacity: 0,
         rotationX: -90,
@@ -22,9 +22,9 @@ const animatAfterSvg = () => {
         alpha: 0,
         ease: "power2.out",
     }, '<').to('.robel-text', {
-        alpha: 0, x: 15, ease: "power1.easeOut", opacity: 0, delay: 0.4, duration: 1
+        alpha: 0, x: 15, ease: "power1.easeOut", opacity: 0, delay: 0.4, duration: 0.5
     }, '<').to('.mahta-text', {
-        alpha: 0, x: -15, ease: "power1.easeOut", opacity: 0, duration: 1
+        alpha: 0, x: -15, ease: "power1.easeOut", opacity: 0, duration: 0.5
     }, '<').set('.svg-container', { display: 'none' }, '>')
         .set('.outside-container', { display: 'none' }, '<')
 

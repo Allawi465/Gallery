@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mainTimeline.add(versTimeline, 0);
     mainTimeline.add(svgTimeline, 0);
     mainTimeline.add(afterSvgTimeline, 0);
-    mainTimeline.add(galleryTimeline, afterSvgTimeline.duration);
+    mainTimeline.add(galleryTimeline, 0);
 
     document.querySelectorAll(".draggable_section").forEach(initDraggableSection);
 });

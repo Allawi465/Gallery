@@ -5,6 +5,6 @@ export function makeSlideActive(itemEl, x, y, columnCount) {
 
     const activeItem = itemEl[activeIndex];
 
-    gsap.to(itemEl, { opacity: 0.25, duration: 0.3 });
+    gsap.to(itemEl, { opacity: 0.12, duration: 0.3 });
     gsap.to(activeItem, { opacity: 1, duration: 0.3 });
 }
