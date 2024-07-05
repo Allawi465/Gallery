@@ -106,7 +106,7 @@ function initializeDragdealer(sectionEl, canvasEl, itemEl, columnCount, pressTl)
     return slider;
 }
 
-function autoPlaySlider(slider, itemEl, columnCount) {
+function autoPlaySlider(slider, itemEl, columnCount, sectionEl) {
     const positions = [];
 
     // Calculate the positions for each item
@@ -116,7 +116,7 @@ function autoPlaySlider(slider, itemEl, columnCount) {
         positions.push({ x, y });
     });
 
-    // Shuffle positions initially
+    // Shuffle positions
     let shuffledPositions = shuffleArray(positions.slice());
 
     let currentIndex = 0;
@@ -127,11 +127,13 @@ function autoPlaySlider(slider, itemEl, columnCount) {
         currentIndex = middleIndex;
     }
 
+    autoPlayTimeline = gsap.timeline({ repeat: -1, paused: true });
+
     function moveToNextPosition() {
-        console.log("moving to next image");
         const pos = shuffledPositions[currentIndex];
         autoPlayTimeline.to(slider, {
-            duration: 7,
+            duration: 10,
+            ease: "power1.inOut",
             onUpdate: function () {
                 slider.setValue(pos.x, pos.y);
             },
@@ -139,7 +141,6 @@ function autoPlaySlider(slider, itemEl, columnCount) {
                 makeSlideActive(itemEl, pos.x, pos.y, columnCount);
                 currentIndex = (currentIndex + 1) % shuffledPositions.length;
                 if (currentIndex === 0) {
-                    // When we reach the end, shuffle the positions again
                     shuffledPositions = shuffleArray(positions.slice());
                 }
                 moveToNextPosition();
@@ -151,17 +152,12 @@ function autoPlaySlider(slider, itemEl, columnCount) {
     slider.setValue(initialPos.x, initialPos.y);
     makeSlideActive(itemEl, initialPos.x, initialPos.y, columnCount);
 
-    // Create and configure the autoplay timeline
-    const autoPlayTimeline = gsap.timeline({ repeat: 0, paused: true });
-    autoPlayTimeline.call(moveToNextPosition, [], autoPlayTimeline, "+=7");
-
-    // Start the autoplay with an initial delay
     setTimeout(() => {
         moveToNextPosition();
         autoPlayTimeline.play();
-        console.log("autoGallery start now");
-    }, 26000); // 26-second delay before autoplay starts
+    }, 26000); // 7-second delay before autoplay starts
 }
+
 
 function stopAutoPlay() {
     if (autoPlayTimeline) {
