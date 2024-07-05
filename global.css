@@ -476,7 +476,7 @@ html.w-editor [text-split] {
     height: 2px;
 }
 
-@media screen and (max-width: 2547px) {
+@media screen and (max-width: 3000px) {
 
     .vers-1,
     .vers-2 {

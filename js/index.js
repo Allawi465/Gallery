@@ -1,12 +1,11 @@
-import vers from "./animate/vers.js"
-import animatSvg from "./animate/svg.js";
-import { animateCanvas } from "./animate/gallery.js";
-import { setupGrid } from "./helpers/grid.js";
-import { makeSlideActive } from "./helpers/activeSlider.js";
-import { setupPressTimeline } from "./animate/drag.js";
-import { isTabletOrMobile } from "./helpers/screenSize.js";
-import { shuffleArray } from "./helpers/shuffle.js";
-import animatAfterSvg from "./animate/afterSvg.js";
+import {
+    vers,
+    animatSvg,
+    animateCanvas,
+    setupPressTimeline,
+    animatAfterSvg
+} from "./animate/index.js";
+import { setupGrid, makeSlideActive, isTabletOrMobile, shuffleArray } from "./helpers/index.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     const mainTimeline = gsap.timeline();
@@ -34,7 +33,7 @@ function initDraggableSection(sectionEl) {
     const columnCount = 5;
     const maxItems = columnCount * columnCount;
 
-    adjustItemCount(sectionEl, listEl, itemEl, itemClass, columnCount, maxItems);
+    adjustItemCount(sectionEl, listEl, itemEl, itemClass, maxItems);
     setupGrid(listEl, columnCount);
     const pressTl = setupPressTimeline(sectionEl, scaleEl);
     itemEl = sectionEl.querySelectorAll(itemClass); // Re-query itemEl after adjustments
@@ -56,12 +55,7 @@ function initDraggableSection(sectionEl) {
     }, { passive: true });
 }
 
-function adjustItemCount(sectionEl, listEl, itemEl, itemClass, columnCount, maxItems) {
-    if (itemEl.length % columnCount === 0) {
-        listEl.removeChild(itemEl[itemEl.length - 1]);
-        itemEl = sectionEl.querySelectorAll(itemClass);
-    }
-
+function adjustItemCount(sectionEl, listEl, itemEl, itemClass, maxItems) {
     let totalItems = itemEl.length;
 
     for (let i = maxItems; i < totalItems; i++) {
@@ -69,13 +63,11 @@ function adjustItemCount(sectionEl, listEl, itemEl, itemClass, columnCount, maxI
     }
 
     while (totalItems < maxItems) {
-        itemEl.forEach(item => {
-            if (totalItems < maxItems) {
-                listEl.appendChild(item.cloneNode(true));
-                totalItems++;
-            }
-        });
-        itemEl = sectionEl.querySelectorAll(itemClass); // Update itemEl
+        for (let i = 0; i < itemEl.length && totalItems < maxItems; i++) {
+            listEl.appendChild(itemEl[i].cloneNode(true));
+            totalItems++;
+        }
+        itemEl = sectionEl.querySelectorAll(itemClass);
     }
 }
 
@@ -88,7 +80,7 @@ function initializeDragdealer(sectionEl, canvasEl, itemEl, columnCount, pressTl)
         steps: columnCount,
         horizontal: true,
         vertical: true,
-        speed: 0.085,
+        speed: 0.1,
         loose: false,
         slide: true,
         requestAnimationFrame: true,
@@ -124,7 +116,7 @@ function autoPlaySlider(slider, itemEl, columnCount) {
         positions.push({ x, y });
     });
 
-    // Shuffle positions
+    // Shuffle positions initially
     let shuffledPositions = shuffleArray(positions.slice());
 
     let currentIndex = 0;
@@ -147,8 +139,10 @@ function autoPlaySlider(slider, itemEl, columnCount) {
                 makeSlideActive(itemEl, pos.x, pos.y, columnCount);
                 currentIndex = (currentIndex + 1) % shuffledPositions.length;
                 if (currentIndex === 0) {
+                    // When we reach the end, shuffle the positions again
                     shuffledPositions = shuffleArray(positions.slice());
                 }
+                moveToNextPosition();
             }
         });
     }
@@ -158,7 +152,7 @@ function autoPlaySlider(slider, itemEl, columnCount) {
     makeSlideActive(itemEl, initialPos.x, initialPos.y, columnCount);
 
     // Create and configure the autoplay timeline
-    autoPlayTimeline = gsap.timeline({ repeat: -1, paused: true });
+    const autoPlayTimeline = gsap.timeline({ repeat: 0, paused: true });
     autoPlayTimeline.call(moveToNextPosition, [], autoPlayTimeline, "+=7");
 
     // Start the autoplay with an initial delay
