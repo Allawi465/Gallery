@@ -596,6 +596,10 @@ html.w-editor [text-split] {
 
 @media screen and (max-width: 433px) {
 
+    .svg-footer {
+        bottom: 4%;
+    }
+
     .outside-container {
         width: 300px;
         height: 500px;

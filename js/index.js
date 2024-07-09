@@ -132,7 +132,7 @@ function autoPlaySlider(slider, itemEl, columnCount, sectionEl) {
     function moveToNextPosition() {
         const pos = shuffledPositions[currentIndex];
         autoPlayTimeline.to(slider, {
-            duration: 10,
+            duration: 6,
             ease: "power1.inOut",
             onUpdate: function () {
                 slider.setValue(pos.x, pos.y);
@@ -155,7 +155,7 @@ function autoPlaySlider(slider, itemEl, columnCount, sectionEl) {
     setTimeout(() => {
         moveToNextPosition();
         autoPlayTimeline.play();
-    }, 26000); // 7-second delay before autoplay starts
+    }, 26000); // 26-second delay before autoplay starts
 }
 
 
