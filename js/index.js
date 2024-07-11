@@ -80,7 +80,7 @@ function initializeDragdealer(sectionEl, canvasEl, itemEl, columnCount, pressTl)
         steps: columnCount,
         horizontal: true,
         vertical: true,
-        speed: 0.12,
+        speed: 0.1,
         loose: false,
         slide: true,
         requestAnimationFrame: true,
