@@ -41,10 +41,10 @@ body {
 }
 
 .svg-footer {
-    position: relative;
-    bottom: 0%;
+    position: fixed;
+    bottom: 2%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     height: 180px;
     z-index: 999;
 }
@@ -67,16 +67,16 @@ body {
     position: absolute;
     bottom: 0%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     width: 200px;
     height: 200px;
 }
 
 .svg-text-bottom {
     position: absolute;
-    bottom: 33%;
+    bottom: 4%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     color: #231F20;
     font-family: 'Cormorant Garamond', serif;
     font-size: 4.8rem;
@@ -597,11 +597,11 @@ html.w-editor [text-split] {
 @media screen and (max-width: 433px) {
 
     .svg-footer {
-        bottom: 3%;
+        bottom: 5%;
     }
 
     .svg-text-bottom {
-        bottom: 22%;
+        bottom: 2%;
         font-size: 3.8rem;
     }
 
